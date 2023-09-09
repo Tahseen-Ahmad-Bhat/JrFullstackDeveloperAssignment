@@ -14,6 +14,11 @@ app.use(express.json());
 
 app.use("/api/user", userRoutes);
 
+// Route for any random path
+app.get("/*", (req, res) => {
+  res.status(404).json({ message: "Page Not Found!" });
+});
+
 // Connecting with mongoDB and creating server
 mongoose
   .connect(MONGO_URI)
