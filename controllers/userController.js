@@ -2,8 +2,8 @@ import User from "../models/userModel.js";
 import UserAddress from "../models/addressModel.js";
 
 export const createUser = async (req, res) => {
-  const { lastName, firstName, email, mobile, city, state, pinCode, country } =
-    req.body.userData;
+  const { firstName, lastName, email, mobile, city, state, pinCode, country } =
+    req.body;
 
   // Creating user-detail document
   const user = new User({
@@ -28,6 +28,6 @@ export const createUser = async (req, res) => {
 
   res.json({
     user,
-    message: "created successfully!",
+    message: "User created successfully!",
   });
 };
